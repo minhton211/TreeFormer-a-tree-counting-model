@@ -1,13 +1,18 @@
-# TreeVision
+# Expanding Vision in Tree Counting: Novel Ground Truth Generation and Deep Learning Model
 
 ## Members
 
-Minh Nhat Ton-That
-Tin Viet Le
-Nhien Hao Truong
-An Dinh Le
-Anh-Duy Pham
-Hien Bich Vo
+Minh Nhat Ton-That - 10422050@student.vgu.edu.vn
+
+Tin Viet Le - 10422078@student.vgu.edu.vn
+
+Nhien Hao Truong - 10422062@student.vgu.edu.vn
+
+An Dinh Le - d0le@ucsd.edu
+
+Anh-Duy Pham - apham@uni-osnabrueck.de
+
+Hien Bich Vo - hien.vb@vgu.edu.vn
 
 ## Introduction
 This is the code repository for the 10th IEEE INTERNATIONAL CONFERENCE ON COMMUNICATIONS AND ELECTRONICS 2024 (IEEE ICCE 2024) paper ["Expanding Vision in
@@ -20,7 +25,7 @@ In our paper, we propose two contributions:
 ## Project structure
 
 ## Dataset
-<Nhien>
+[//]: # (Nhiên)
 
 ## Environment setup
 We develop our project on Google Colab platform with Python 3.10.
@@ -31,13 +36,15 @@ To set up the environment, please:
  2. Run `pip install -r requirements.txt`
 
 ## New ground truth generation practice
-<Tinle>
+[//]: # (Tinle)
 
 ## TreeVision model
-<Minh>
+[//]: # (Minh)
 
 ## Evaluation
 Download our trained model on the Yosemite and London datasets.
+
+[//]: # (Nhiên gắn cái link drive của từng file weight vào lần lượt chữ Yosemite và chữ london)
 
 ## Acknowledgement
 
