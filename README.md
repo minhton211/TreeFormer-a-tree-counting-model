@@ -23,6 +23,7 @@ In our paper, we propose two contributions:
 - A new tree-counting model called TreeVision with competitive performance compared with state-of-the-arts.
 
 ## Project structure
+```
 TreeVision Project
 ├───dataloaders
 |   ├───london                     
@@ -42,7 +43,7 @@ TreeVision Project
 |   |   │   └───test
 |   |   │   |   │   ├───images
 |   |   │   |   │   └───labels
-│   └───yosemite                           
+│   ├───yosemite                           
 |   |   │   ├───zone A
 |   |   │   |   │   ├───images
 |   |   │   |   │   └───labels
@@ -55,6 +56,7 @@ TreeVision Project
 |   |   │   └───zone D
 |   |   │   |   │   ├───images
 |   |   │   |   │   └───labels
+│   └───README.md  
 ├───weights
 │   ├───CSRNet_Shanghai_B_weights.h5 
 ├───dataloader.py
@@ -68,9 +70,9 @@ TreeVision Project
 ├───main.ipynb
 ├───utils.py  
 └───yosemite.yaml                                    
-
+```
 ## Dataset
-[//]: # (Nhiên)
+Details of the used dataset can be found in [README.md](datasets/README.md).
 
 ## Environment setup
 We develop our project on Google Colab platform with Python 3.10.
@@ -93,4 +95,3 @@ Download our trained model on the Yosemite and London datasets.
 
 ## Acknowledgement
 
-## License
