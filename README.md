@@ -23,6 +23,51 @@ In our paper, we propose two contributions:
 - A new tree-counting model called TreeVision with competitive performance compared with state-of-the-arts.
 
 ## Project structure
+TreeVision Project
+├───dataloaders
+|   ├───london                     
+|   |   │   ├───train.h5
+|   │   |   └───val.h5
+│   └───yosemite                           
+|   |   │   ├───train.h5
+|   │   |   └───val.h5
+├───datasets
+|   ├───london                     
+|   |   │   ├───train
+|   |   │   |   │   ├───images
+|   |   │   |   │   └───labels
+|   |   │   ├───val
+|   |   │   |   │   ├───images
+|   |   │   |   │   └───labels
+|   |   │   └───test
+|   |   │   |   │   ├───images
+|   |   │   |   │   └───labels
+│   └───yosemite                           
+|   |   │   ├───zone A
+|   |   │   |   │   ├───images
+|   |   │   |   │   └───labels
+|   |   │   ├───zone B
+|   |   │   |   │   ├───images
+|   |   │   |   │   └───labels
+|   |   │   ├───zone C
+|   |   │   |   │   ├───images
+|   |   │   |   │   └───labels
+|   |   │   └───zone D
+|   |   │   |   │   ├───images
+|   |   │   |   │   └───labels
+├───weights
+│   ├───CSRNet_Shanghai_B_weights.h5 
+├───dataloader.py
+├───london.yaml
+├───model_utils.py
+├───model.py
+├───requirements.txt
+├───README.md
+├───test.py
+├───train.py
+├───main.ipynb
+├───utils.py  
+└───yosemite.yaml                                    
 
 ## Dataset
 [//]: # (Nhiên)
