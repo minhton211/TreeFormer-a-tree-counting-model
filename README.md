@@ -29,7 +29,10 @@ TreeVision Project
 |   ├───london                     
 |   |   │   ├───train.h5
 |   │   |   └───val.h5
-│   └───yosemite                           
+|   ├───yosemite_1536                     
+|   |   │   ├───train.h5
+|   │   |   └───val.h5
+│   └───yosemite_512                           
 |   |   │   ├───train.h5
 |   │   |   └───val.h5
 ├───datasets                    # Contains images and labels of the KCL-London and Yosemite dataset.
@@ -43,7 +46,20 @@ TreeVision Project
 |   |   │   └───test
 |   |   │   |   │   ├───images
 |   |   │   |   │   └───labels
-│   ├───yosemite                 # The images are cropped to size 512x512 according to IMAGE_PREPROCESS.md     
+│   ├───yosemite_1536                 # The images are first cropped to size 1536x1536 according to IMAGE_PREPROCESS.md     
+|   |   │   ├───zone A           # Zone A and C are reserved for testing
+|   |   │   |   │   ├───images
+|   |   │   |   │   └───labels
+|   |   │   ├───zone B           # Zone B and D are reserved for training
+|   |   │   |   │   ├───images
+|   |   │   |   │   └───labels
+|   |   │   ├───zone C
+|   |   │   |   │   ├───images
+|   |   │   |   │   └───labels
+|   |   │   └───zone D
+|   |   │   |   │   ├───images
+|   |   │   |   │   └───labels
+│   ├───yosemite_512                 # The images are directly cropped to size 512x512 according to IMAGE_PREPROCESS.md     
 |   |   │   ├───zone A           # Zone A and C are reserved for testing
 |   |   │   |   │   ├───images
 |   |   │   |   │   └───labels
@@ -58,7 +74,7 @@ TreeVision Project
 |   |   │   |   │   └───labels
 │   └───README.md  
 ├───weights                      # Default folder to save checkpoints and the best weight after training
-│   ├───CSRNet_Shanghai_B_weights.h5 
+│   ├───CSRNet_Shanghai_B_weights.h5   # Pretrained weight of CSRNet on ShanghaiB dataset
 ├───dataloader.py
 ├───IMAGE_PREPROCESS.md
 ├───Github_Image_Processing.ipynb
@@ -70,8 +86,9 @@ TreeVision Project
 ├───test.py
 ├───train.py
 ├───main.ipynb
-├───utils.py  
-└───yosemite.yaml                                    
+├───utils.py
+├───yosemite_1536.yaml
+└───yosemite_512.yaml                                    
 ```
 ## Dataset
 
@@ -91,7 +108,32 @@ Download our pretrained model on the Yosemite and London datasets
 
 [//]: # (Nhiên gắn cái link drive của từng file weight vào lần lượt chữ Yosemite và chữ london)
 
-## Acknowledgement
+## References
+If you find our research helpful, please cite our paper. Thank you!
+```
+@INPROCEEDINGS{10634677,
+  author={Ton-That, Minh Nhat and Le, Tin Viet and Truong, Nhien Hao and Le, An Dinh and Pham, Anh-Duy and Vo, Hien Bich},
+  booktitle={2024 Tenth International Conference on Communications and Electronics (ICCE)}, 
+  title={Expanding Vision in Tree Counting: Novel Ground Truth Generation and Deep Learning Model}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={409-414},
+  keywords={Training;Deep learning;Electric potential;Computational modeling;Vegetation;Manuals;Transformers},
+  doi={10.1109/ICCE62051.2024.10634677}}
+```
+
+## Acknowledgements
+We extend our sincere gratitude to the following sources for their invaluable work, which has significantly supported our project.
+
+For Yosemite tree dataset, refer to:
+
+https://github.com/nightonion/yosemite-tree-dataset
+
+For KCL-London tree dataset, refer to:
+
+https://github.com/HAAClassic/TreeFormer
+
 For information on dilated convolutional architectures and pretrained weights for dilated layers on the ShanghaiB dataset, refer to:
 
 https://github.com/leeyeehoo/CSRNet-pytorch
