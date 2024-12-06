@@ -25,14 +25,14 @@ In our paper, we propose two contributions:
 ## Project structure
 ```
 TreeVision Project
-├───dataloaders
+├───dataloaders                 # Contains .h5 files for the KCL-London and Yosemite dataset      
 |   ├───london                     
 |   |   │   ├───train.h5
 |   │   |   └───val.h5
 │   └───yosemite                           
 |   |   │   ├───train.h5
 |   │   |   └───val.h5
-├───datasets
+├───datasets                    # Contains images and labels of the KCL-London and Yosemite dataset.
 |   ├───london                     
 |   |   │   ├───train
 |   |   │   |   │   ├───images
@@ -43,11 +43,11 @@ TreeVision Project
 |   |   │   └───test
 |   |   │   |   │   ├───images
 |   |   │   |   │   └───labels
-│   ├───yosemite                           
-|   |   │   ├───zone A
+│   ├───yosemite                 # The images are cropped to size 512x512 according to IMAGE_PREPROCESS.md     
+|   |   │   ├───zone A           # Zone A and C are reserved for testing
 |   |   │   |   │   ├───images
 |   |   │   |   │   └───labels
-|   |   │   ├───zone B
+|   |   │   ├───zone B           # Zone B and D are reserved for training
 |   |   │   |   │   ├───images
 |   |   │   |   │   └───labels
 |   |   │   ├───zone C
@@ -57,9 +57,11 @@ TreeVision Project
 |   |   │   |   │   ├───images
 |   |   │   |   │   └───labels
 │   └───README.md  
-├───weights
+├───weights                      # Default folder to save checkpoints and the best weight after training
 │   ├───CSRNet_Shanghai_B_weights.h5 
 ├───dataloader.py
+├───IMAGE_PREPROCESS.md
+├───Github_Image_Processing.ipynb
 ├───london.yaml
 ├───model_utils.py
 ├───model.py
@@ -72,7 +74,7 @@ TreeVision Project
 └───yosemite.yaml                                    
 ```
 ## Dataset
-Details of the used dataset can be found in [README.md](datasets/README.md).
+
 
 ## Environment setup
 We develop our project on Google Colab platform with Python 3.10.
@@ -81,15 +83,11 @@ To set up the environment, please:
  
  1. Clone this repository
  2. Run `pip install -r requirements.txt`
-
-## New ground truth generation practice
-[//]: # (Tinle)
-
-## TreeVision model
-[//]: # (Minh)
+ 3. Download the KCL-London and Yosemite datasets, along with their corresponding .h5 files, using the provided links.
+ 4. Arrange the downloaded files and folders to match the specified project structure.
 
 ## Evaluation
-Download our trained model on the Yosemite and London datasets.
+Download our pretrained model on the Yosemite and London datasets
 
 [//]: # (Nhiên gắn cái link drive của từng file weight vào lần lượt chữ Yosemite và chữ london)
 
