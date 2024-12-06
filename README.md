@@ -92,4 +92,10 @@ Download our pretrained model on the Yosemite and London datasets
 [//]: # (Nhiên gắn cái link drive của từng file weight vào lần lượt chữ Yosemite và chữ london)
 
 ## Acknowledgement
+For information on dilated convolutional architectures and pretrained weights for dilated layers on the ShanghaiB dataset, refer to:
 
+https://github.com/leeyeehoo/CSRNet-pytorch
+
+For information on the Vision Transformers backbone, visit:
+
+https://github.com/facebookresearch/detectron2/tree/main/projects/ViTDet
