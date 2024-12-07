@@ -1,0 +1,6 @@
+# Ground truth files
+train: dataloaders/london/train.h5
+val: dataloaders/london/val.h5
+
+# Pretrained weights
+Shanghai_B: weights/CSRNet_Shanghai_B_weights.h5

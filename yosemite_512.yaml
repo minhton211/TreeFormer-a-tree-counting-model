@@ -1,0 +1,5 @@
+train: dataloaders/yosemite_512/train.h5
+val: dataloaders/yosemite_512/val.h5
+
+# Pretrained weights
+Shanghai_B: weights/CSRNet_Shanghai_B_weights.h5
