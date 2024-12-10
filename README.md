@@ -74,7 +74,10 @@ TreeVision Project
 |   |   │   |   │   └───labels
 │   └───README.md  
 ├───weights                      # Default folder to save checkpoints and the best weight after training
-│   ├───CSRNet_Shanghai_B_weights.h5   # Pretrained weight of CSRNet on ShanghaiB dataset
+│   ├───CSRNet_Shanghai_B_weights.h5       # Pretrained weight of CSRNet on ShanghaiB dataset
+│   ├───yosemite_512_best.pth     # Pretrained weight of TreeVision on the Yosemite dataset with images being cropped directly to size 512x512
+│   ├───yosemite_1536_best.pt     # Pretrained weight of TreeVision on the Yosemite dataset with images being cropped to size 1536x1536 before applying gaussian filter
+│   └───london_best.pth  # Pretrained weight of TreeVision on the KCL-London dataset
 ├───dataloader.py
 ├───IMAGE_PREPROCESS.md
 ├───Github_Image_Processing.ipynb
@@ -109,7 +112,7 @@ To set up the environment, please:
  4. Arrange the downloaded files and folders to match the specified project structure.
 
 ## Evaluation
-Download our pretrained model on the [Yosemite](https://drive.google.com/file/d/1gEBEPHi7LhCZWbBICHuj46KJlggfVXlB/view?usp=sharing) and [London](https://drive.google.com/file/d/1-sf-ayfdpDnNZ0FOdVWTuDn_G-JDi6Y1/view?usp=sharing) datasets.
+Download our pretrained model on the [Yosemite_512](https://drive.google.com/file/d/1gEBEPHi7LhCZWbBICHuj46KJlggfVXlB/view?usp=sharing), [Yosemite_1536](https://drive.google.com/file/d/10He9U6JYtKZfz_dGUguZ_ADvSzfVroe9/view?usp=drive_link) and [KCL-London](https://drive.google.com/file/d/1-sf-ayfdpDnNZ0FOdVWTuDn_G-JDi6Y1/view?usp=sharing) datasets.
 
 The weight of CSRNet for evaluation in this paper is the pretrained weight on Shanghai_B, which can be found in the [CSRNet original repo](https://github.com/leeyeehoo/CSRNet).
 
