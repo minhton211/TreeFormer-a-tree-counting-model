@@ -91,7 +91,12 @@ TreeVision Project
 └───yosemite_512.yaml                                    
 ```
 ## Dataset
+The datasets used in this paper are the [KCL-London dataset](https://drive.google.com/file/d/1xcjv8967VvvzcDM4aqAi7Corkb11T0i2/view?usp=sharing) and the [Yosemite dataset](https://github.com/nightonion/yosemite-tree-dataset).
+ - **KCL-London**: 613 annotated and 308 unannotated images each having a size of 1024×1024. The dataset comprises 452 images for training and 161 images for testing, with a total of 95,067 annotated tree
+ - **Yosemite**: the original image covers a 2262.5m × 4525.1m rect-
+angular area in reality (19200×38400 pixels in image), captured in Yosemite National Park, California, United States of America. There are 98,949 trees labeled in total
 
+![Evaluation results](./assets/eval.png)
 
 ## Environment setup
 We develop our project on Google Colab platform with Python 3.10.
@@ -104,9 +109,9 @@ To set up the environment, please:
  4. Arrange the downloaded files and folders to match the specified project structure.
 
 ## Evaluation
-Download our pretrained model on the Yosemite and London datasets
+Download our pretrained model on the [Yosemite](https://drive.google.com/file/d/1gEBEPHi7LhCZWbBICHuj46KJlggfVXlB/view?usp=sharing) and [London](https://drive.google.com/file/d/1-sf-ayfdpDnNZ0FOdVWTuDn_G-JDi6Y1/view?usp=sharing) datasets.
 
-[//]: # (Nhiên gắn cái link drive của từng file weight vào lần lượt chữ Yosemite và chữ london)
+The weight of CSRNet for evaluation in this paper is the pretrained weight on Shanghai_B, which can be found at this [link](https://drive.google.com/open?id=1NOpn0ztlye85vrHR2TMwOI2Qu_S8zANj) in the [CSRNet original repo](https://github.com/leeyeehoo/CSRNet).
 
 ## References
 If you find our research helpful, please cite our paper. Thank you!
