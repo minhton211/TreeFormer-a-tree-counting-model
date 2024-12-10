@@ -111,7 +111,7 @@ To set up the environment, please:
 ## Evaluation
 Download our pretrained model on the [Yosemite](https://drive.google.com/file/d/1gEBEPHi7LhCZWbBICHuj46KJlggfVXlB/view?usp=sharing) and [London](https://drive.google.com/file/d/1-sf-ayfdpDnNZ0FOdVWTuDn_G-JDi6Y1/view?usp=sharing) datasets.
 
-The weight of CSRNet for evaluation in this paper is the pretrained weight on Shanghai_B, which can be found at this [link](https://drive.google.com/open?id=1NOpn0ztlye85vrHR2TMwOI2Qu_S8zANj) in the [CSRNet original repo](https://github.com/leeyeehoo/CSRNet).
+The weight of CSRNet for evaluation in this paper is the pretrained weight on Shanghai_B, which can be found in the [CSRNet original repo](https://github.com/leeyeehoo/CSRNet).
 
 ## References
 If you find our research helpful, please cite our paper. Thank you!
