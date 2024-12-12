@@ -218,18 +218,21 @@ This document describes the image preprocessing pipeline for preparing tree coun
 
 ## Directory Structure
 ```
-Dataset/
-├── London/
+datasets/
+├── london/
 │   ├── test/
 │   ├── train/
 │   └── val/
-└── Yosemite/
-    ├── Dataset_Row_1536x2560/
-    │   ├── zone_A/
-    │   ├── zone_B/
-    │   ├── zone_C/
-    │   └── zone_D/
-    └── labels.txt
+├── yosemite/
+│   ├── labels.txt
+│   ├── z20_data.png
+│   └── z20_label.png
+├── yosemite_1536/
+│   ├── zone A/
+│   ├── zone B/
+│   ├── zone C/
+│   └── zone D/
+└── yosemite_512/
 ```
 
 ## Preprocessing Steps

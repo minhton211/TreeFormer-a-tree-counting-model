@@ -25,55 +25,54 @@ In our paper, we propose two contributions:
 ## Project structure
 ```
 TreeVision Project
-├───dataloaders                 # Contains .h5 files for the KCL-London and Yosemite dataset      
-|   ├───london                     
+├───dataloaders/                 # Contains .h5 files for the KCL-London and Yosemite dataset      
+|   ├───london/                     
 |   |   │   ├───train.h5
 |   │   |   └───val.h5
-|   ├───yosemite_1536                     
+|   ├───yosemite_1536/                     
 |   |   │   ├───train.h5
 |   │   |   └───val.h5
-│   └───yosemite_512                           
+│   └───yosemite_512/                           
 |   |   │   ├───train.h5
 |   │   |   └───val.h5
-├───datasets                    # Contains images and labels of the KCL-London and Yosemite dataset.
-|   ├───london                     
-|   |   │   ├───train
+├───datasets/                    # Contains images and labels of the KCL-London and Yosemite dataset.
+|   ├───london/                     
+|   |   │   ├───train/
 |   |   │   |   │   ├───images
 |   |   │   |   │   └───labels
-|   |   │   ├───val
+|   |   │   ├───val/
 |   |   │   |   │   ├───images
 |   |   │   |   │   └───labels
-|   |   │   └───test
+|   |   │   └───test/
 |   |   │   |   │   ├───images
 |   |   │   |   │   └───labels
-│   ├───yosemite_1536                 # The images are first cropped to size 1536x1536 according to IMAGE_PREPROCESS.md     
-|   |   │   ├───zone A           # Zone A and C are reserved for testing
+│   ├───yosemite_1536/                 # The images are first cropped to size 1536x1536 according to IMAGE_PREPROCESS.md     
+|   |   │   ├───zone A/           # Zone A and C are reserved for testing
 |   |   │   |   │   ├───images
 |   |   │   |   │   └───labels
-|   |   │   ├───zone B           # Zone B and D are reserved for training
+|   |   │   ├───zone B/           # Zone B and D are reserved for training
 |   |   │   |   │   ├───images
 |   |   │   |   │   └───labels
-|   |   │   ├───zone C
+|   |   │   ├───zone C/
 |   |   │   |   │   ├───images
 |   |   │   |   │   └───labels
-|   |   │   └───zone D
+|   |   │   └───zone D/
 |   |   │   |   │   ├───images
 |   |   │   |   │   └───labels
-│   ├───yosemite_512                 # The images are directly cropped to size 512x512 according to IMAGE_PREPROCESS.md     
-|   |   │   ├───zone A           # Zone A and C are reserved for testing
+│   └───yosemite_512/                 # The images are directly cropped to size 512x512 according to IMAGE_PREPROCESS.md     
+|   |   │   ├───zone A/           # Zone A and C are reserved for testing
 |   |   │   |   │   ├───images
 |   |   │   |   │   └───labels
-|   |   │   ├───zone B           # Zone B and D are reserved for training
+|   |   │   ├───zone B/           # Zone B and D are reserved for training
 |   |   │   |   │   ├───images
 |   |   │   |   │   └───labels
-|   |   │   ├───zone C
+|   |   │   ├───zone C/
 |   |   │   |   │   ├───images
 |   |   │   |   │   └───labels
-|   |   │   └───zone D
+|   |   │   └───zone D/
 |   |   │   |   │   ├───images
 |   |   │   |   │   └───labels
-│   └───README.md  
-├───weights                      # Default folder to save checkpoints and the best weight after training
+├───weights/                      # Default folder to save checkpoints and the best weight after training
 │   ├───CSRNet_Shanghai_B_weights.h5       # Pretrained weight of CSRNet on ShanghaiB dataset
 │   ├───yosemite_512_best.pth     # Pretrained weight of TreeVision on the Yosemite dataset with images being cropped directly to size 512x512
 │   ├───yosemite_1536_best.pt     # Pretrained weight of TreeVision on the Yosemite dataset with images being cropped to size 1536x1536 before applying gaussian filter
