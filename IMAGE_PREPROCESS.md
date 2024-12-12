@@ -21,17 +21,24 @@ Link to original Yosemite dataset: "https://github.com/nightonion/yosemite-tree-
 After downloading the datasets, you should organize the files as follows:
 ```
 Dataset/
-├── London/
+├── london/
 │   ├── test/
 │   ├── train/
 │   └── val/
-└── Yosemite/
-    ├── Dataset_Row_1536x1536/
-    │   ├── zone_A/
-    │   ├── zone_B/
-    │   ├── zone_C/
-    │   └── zone_D/
-    └── labels.txt
+├── yosemite/
+│   ├── z20_data.png
+│   ├── z20_label.png
+│   └── labels.txt
+├── yosemite_512/
+    ├── zone_A/  
+    ├── zone_B/
+    ├── zone_C/
+    └── zone_D/
+└── yosemite_1536/
+    ├── zone_A/
+    ├── zone_B/
+    ├── zone_C/
+    └── zone_D/
 ```
 
 ## Preprocessing Steps
