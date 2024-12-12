@@ -12,7 +12,13 @@ This document describes the image preprocessing pipeline for preparing tree coun
 - PyTorch
 - Matplotlib
 
-## Directory Structure
+## Dataset download and directory structure
+Link to London dataset: "https://drive.google.com/drive/folders/18qfBuIGlYOr3hYGulug1QUcUHmonboY0?usp=sharing"
+Link to Yosemite dataset version crop directly to size 512x512: "https://drive.google.com/drive/folders/1utzrXXKkO5DdWa6wfPOJklxY3m3KrIRu?usp=sharing"
+Link to Yosemite dataset version crop from size 1536x1536 to size 512x512: "https://drive.google.com/drive/folders/16M3RUIcpvIMloO0zoeUwtTC-tOsPDBE8?usp=sharing"
+Link to original Yosemite dataset: "https://github.com/nightonion/yosemite-tree-dataset"
+
+After downloading the datasets, you should organize the files as follows:
 ```
 Dataset/
 ├── London/
@@ -20,7 +26,7 @@ Dataset/
 │   ├── train/
 │   └── val/
 └── Yosemite/
-    ├── Dataset_Row_1536x2560/
+    ├── Dataset_Row_1536x1536/
     │   ├── zone_A/
     │   ├── zone_B/
     │   ├── zone_C/
@@ -234,6 +240,15 @@ datasets/
 │   └── zone D/
 └── yosemite_512/
 ```
+    |__z20_data.png
+    |__z20_label.png
+```
+
+## Note for Yosemite dataset
+
+The original dataset includes a large image and a label file, which contains the coordinates of the trees within the image. It is essential to crop the image into smaller sections while preserving these coordinates. The author has cropped the image into 512x512 sections from four zones of the original image, with each zone containing 675 images arranged in a grid of 9 images in width and 75 images in height.
+
+To enhance the performance of the Gaussian filter, as discussed in our paper, the image should be cropped to a larger size. However, to maintain 675 images per zone, the larger image size must be 512 multiplied by a divisor of either 75 or 9, depending on the dimension. Since the power capability of our machine is limited, we have decided to crop the image into 1536x1536 sections. After cropping, apply the Gaussian filter to the image to create the density map, and then split the cropped image back into 512x512 sections.
 
 ## Preprocessing Steps
 
@@ -275,7 +290,7 @@ def main_row(input_image_path, input_label_path, output_folder, cw, ch):
         input_label_path: Path to label file
         output_folder: Output directory
         cw: Crop width (1536)
-        ch: Crop height (2560)
+        ch: Crop height (1536)
     """
     os.makedirs(output_folder, exist_ok=True)
     folders = ['zone_A', 'zone_B', 'zone_C', 'zone_D']
@@ -368,13 +383,13 @@ def generate_label(label_info: np.array, image_shape: List[int]):
 ```python
 input_image_path = 'Dataset/Yosemite/z20_data.png'
 input_label_path = 'Dataset/Yosemite/labels.txt'
-output_folder = 'Dataset/Yosemite/Dataset_Row_1536x2560'
+output_folder = 'Dataset/Yosemite/Dataset_Row_1536x1536'
 ```
 
 #### Set crop dimensions
 ```python
 crop_width = 1536
-crop_height = 2560
+crop_height = 1536
 ```
 
 #### Process images
@@ -385,14 +400,15 @@ main_row(input_image_path, input_label_path, output_folder, crop_width, crop_hei
 #### Generate HDF5 Datasets
 ```python
 # For Yosemite dataset
-generate_our_own_data("yosemite_1536x2560")
+generate_our_own_data("yosemite_1536x1536")
 
 # For London dataset
 generate_our_own_data("london")
 ```
 
 ### Notes
-- Images are cropped into 1536x2560 pixel segments
+- Images are cropped into 1536x1536 pixel segments to further split into image of size 512x512 after apply Gaussian filter
+- Or directly cropped into size 512x125
 - Labels are automatically adjusted for cropped segments
 - Density maps are generated using gaussian filtering
 - Datasets are split into train/validation sets
