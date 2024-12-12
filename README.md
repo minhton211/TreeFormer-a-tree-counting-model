@@ -27,14 +27,14 @@ In our paper, we propose two contributions:
 TreeVision Project
 ├───dataloaders/                 # Contains .h5 files for the KCL-London and Yosemite dataset      
 |   ├───london/                     
-|   |   │   ├───train.h5
-|   │   |   └───val.h5
-|   ├───yosemite_1536/                     
-|   |   │   ├───train.h5
-|   │   |   └───val.h5
+|   |   │   ├───train_london.h5
+|   │   |   └───val_london.h5
+|   ├───yosemite_512_cropped/                     
+|   |   │   ├───train_yosemite_1536_cropped.h5
+|   │   |   └───val_yosemite_1536_cropped.h5
 │   └───yosemite_512/                           
-|   |   │   ├───train.h5
-|   │   |   └───val.h5
+|   |   │   ├───train_yosemite_512.h5
+|   │   |   └───val_yosemite_512.h5
 ├───datasets/                    # Contains images and labels of the KCL-London and Yosemite dataset.
 |   ├───london/                     
 |   |   │   ├───train/
@@ -46,7 +46,7 @@ TreeVision Project
 |   |   │   └───test/
 |   |   │   |   │   ├───images
 |   |   │   |   │   └───labels
-│   ├───yosemite_1536/                 # The images are first cropped to size 1536x1536 according to IMAGE_PREPROCESS.md     
+│   ├───yosemite_1536_no_crop/                 # The images are first cropped to size 1536x1536 according to IMAGE_PREPROCESS.md     
 |   |   │   ├───zone A/           # Zone A and C are reserved for testing
 |   |   │   |   │   ├───images
 |   |   │   |   │   └───labels
@@ -59,7 +59,7 @@ TreeVision Project
 |   |   │   └───zone D/
 |   |   │   |   │   ├───images
 |   |   │   |   │   └───labels
-│   └───yosemite_512/                 # The images are directly cropped to size 512x512 according to IMAGE_PREPROCESS.md     
+│   ├───yosemite_1536/                 # The images are cropped from size 1536x1536 according to IMAGE_PREPROCESS.md     
 |   |   │   ├───zone A/           # Zone A and C are reserved for testing
 |   |   │   |   │   ├───images
 |   |   │   |   │   └───labels
@@ -72,6 +72,22 @@ TreeVision Project
 |   |   │   └───zone D/
 |   |   │   |   │   ├───images
 |   |   │   |   │   └───labels
+│   ├───yosemite_512/                 # The images are directly cropped to size 512x512 according to IMAGE_PREPROCESS.md     
+|   |   │   ├───zone A/           # Zone A and C are reserved for testing
+|   |   │   |   │   ├───images
+|   |   │   |   │   └───labels
+|   |   │   ├───zone B/           # Zone B and D are reserved for training
+|   |   │   |   │   ├───images
+|   |   │   |   │   └───labels
+|   |   │   ├───zone C/
+|   |   │   |   │   ├───images
+|   |   │   |   │   └───labels
+|   |   │   └───zone D/
+|   |   │   |   │   ├───images
+|   |   │   |   │   └───labels
+|   └───yosemite/
+|   |   │   ├───z20_data.png
+|   |   │   ├───z20_label.png
 ├───weights/                      # Default folder to save checkpoints and the best weight after training
 │   ├───CSRNet_Shanghai_B_weights.h5       # Pretrained weight of CSRNet on ShanghaiB dataset
 │   ├───yosemite_512_best.pth     # Pretrained weight of TreeVision on the Yosemite dataset with images being cropped directly to size 512x512
