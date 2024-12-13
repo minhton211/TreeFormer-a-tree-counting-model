@@ -122,14 +122,70 @@ We develop our project on Google Colab platform with Python 3.10.
 To set up the environment, please:
  
  1. Clone this repository
- 2. Run `pip install -r requirements.txt`
- 3. Download the KCL-London and Yosemite datasets, along with their corresponding .h5 files, using the provided links.
+ 2. Install the required dependencies by running `pip install -r requirements.txt`
+ 3. Use the provided [links](##Dataset)  to download the KCL-London and Yosemite datasets.
  4. Arrange the downloaded files and folders to match the specified project structure.
+ 5. Open and run [Github_Image_Processing.ipynb](Github_Image_Processing.ipynb) notebook, following its instructions to crop the images and create HDF5 ground truth files for the datasets.
 
+## Training
+1. Launch [main.ipynb](main.ipynb) and set up the environment
+2. Configure the training parameters by setting values for the number of epochs, batch size, learning rate, decay, number of workers, wandb ID, and dataset details in the ```config``` dictionary. If resuming training, specify the ID of the previous run in the ```id``` field and provide the path to the checkpoint weights in the ```pre``` field. Example configuration:
+```
+config = dict(
+    epochs=1,
+    batch_size=1,
+    lr=1e-4,
+    decay=5*1e-4,
+    workers=1,
+    pre=None,
+    id=wandb.util.generate_id(),
+    dataset_path=DATASET_PATH,  
+    dataset_name=dataset_name)
+```
+3. Start the training process by running the following code block:
+```
+from train import pipeline
+
+model = pipeline(config)
+```
+    
 ## Evaluation
 Download our pretrained model on the [Yosemite_512](https://drive.google.com/file/d/1gEBEPHi7LhCZWbBICHuj46KJlggfVXlB/view?usp=sharing), [Yosemite_1536](https://drive.google.com/file/d/10He9U6JYtKZfz_dGUguZ_ADvSzfVroe9/view?usp=drive_link) and [KCL-London](https://drive.google.com/file/d/1-sf-ayfdpDnNZ0FOdVWTuDn_G-JDi6Y1/view?usp=sharing) datasets.
 
 The weight of CSRNet for evaluation in this paper is the pretrained weight on Shanghai_B, which can be found in the [CSRNet original repo](https://github.com/leeyeehoo/CSRNet).
+
+The following command in the ```Validate``` section of [main.ipynb](main.ipynb) should reproduce the results of TreeVision on the KCL-London dataset, achieving metrics of MAE = 16.80, RMSE = 21.98, and R² = 0.78:
+```
+import os
+
+import torch
+import torch.nn as nn
+from model import TreeVision
+from val import validate
+from utils import prepare_datasets
+
+
+checkpoint_path = "weights/london_best.pth"
+dataset_name = input("Choose a dataset: ").lower()  # london
+dataset_path = os.path.join("datasets", dataset_name)  # datasets/london
+
+model = TreeVision()
+model = model.cuda()
+checkpoint = torch.load(checkpoint_path)
+model.load_state_dict(checkpoint['state_dict'])
+
+_, val_list = prepare_datasets(dataset_path, dataset_name)
+
+criterion = nn.MSELoss(size_average=False).cuda()
+
+config = dict(
+    batch_size=1,
+    workers=1,
+    dataset_path=dataset_path,
+    dataset_name=dataset_name)
+
+validate(val_list, model, criterion, config)
+```
 
 ## References
 If you find our research helpful, please cite our paper. Thank you!
